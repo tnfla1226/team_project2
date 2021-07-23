@@ -1,0 +1,30 @@
+
+
+/* reset css */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wrap {
+    background: #e9ecef;
+    padding-top: 64px;
+    height: 100vh;
+}
+
+section.calTemplete {
+    width: 27%;
+    height: 500px;
+    background: tomato;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+section.calTemplete .viewer {
+    
+    line-height: 2em;
+    
+    
+    
+    
+}
