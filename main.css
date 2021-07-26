@@ -30,7 +30,7 @@ section.calTemplete {
     padding: 50px 50px;
 }
 
-section.calTemplete .show {
+section.calTemplete #show {
     display: inline-block;
     /* line-height: 2em; */
     border-radius: 10px;
