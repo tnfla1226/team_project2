@@ -70,6 +70,8 @@ section.calTemplete .buttons .divisor,
 section.calTemplete .buttons .plus,
 section.calTemplete .buttons .answer {
     background: #ff8747;
+    box-shadow: 3px 3px 0px rgba(253, 93, 0);
+
 }
 
 section.calTemplete .buttons .remain:hover,
@@ -93,6 +95,7 @@ section.calTemplete .buttons .answer:active {
 section.calTemplete .buttons .num,
 section.calTemplete .buttons .dot {
     background: #797373;
+    box-shadow: 3px 3px 0px rgba(90, 88, 88);
 }
 
 section.calTemplete .buttons .num:hover,
@@ -108,6 +111,7 @@ section.calTemplete .buttons .dot:active {
 section.calTemplete .buttons .delete,
 section.calTemplete .buttons .clear {
     background: #fa413a;
+    box-shadow: 3px 3px 0px rgba(248, 24, 17);
 }
 
 section.calTemplete .buttons .clear:hover,
