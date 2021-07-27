@@ -21,7 +21,7 @@ section.container {
     font-size: 14px;
     margin: 0 auto;
     box-shadow: 0 0 0.7;
-    box-shadow: 0 0 10px rgba(0,0,0, 0.8);
+    box-shadow: 15px 15px 0px rgba(103, 144, 150, 0.8);
 }
 
 section.calTemplete {
@@ -44,7 +44,7 @@ section.calTemplete #show {
 }
 
 section.calTemplete .buttons {
-    margin-top: 30px;
+    margin-top: 27px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 55px;
@@ -53,7 +53,6 @@ section.calTemplete .buttons {
 
 section.calTemplete .buttons button {
     border-radius: 10px;
-    background: #797373;
     border: 0;
     cursor: pointer;
     color: #fff;
@@ -64,12 +63,59 @@ section.calTemplete .buttons .double {
     grid-column: 3/5; 
 }
 
-section.calTemplete .buttons .plusMinus,
+section.calTemplete .buttons .remain,
 section.calTemplete .buttons .mul,
 section.calTemplete .buttons .minus,
 section.calTemplete .buttons .divisor, 
 section.calTemplete .buttons .plus,
-section.calTemplete .buttons .dec,
 section.calTemplete .buttons .answer {
-    background: rgb(248, 136, 71);
+    background: #ff8747;
+}
+
+section.calTemplete .buttons .remain:hover,
+section.calTemplete .buttons .mul:hover,
+section.calTemplete .buttons .minus:hover,
+section.calTemplete .buttons .divisor:hover, 
+section.calTemplete .buttons .plus:hover,
+section.calTemplete .buttons .answer:hover {
+    background: #fc7c31;
+}
+
+section.calTemplete .buttons .remain:active,
+section.calTemplete .buttons .mul:active,
+section.calTemplete .buttons .minus:active,
+section.calTemplete .buttons .divisor:active, 
+section.calTemplete .buttons .plus:active,
+section.calTemplete .buttons .answer:active {
+    background: #fd5d00;
+}
+
+section.calTemplete .buttons .num,
+section.calTemplete .buttons .dot {
+    background: #797373;
+}
+
+section.calTemplete .buttons .num:hover,
+section.calTemplete .buttons .dot:hover {
+    background: #666464;
+}
+
+section.calTemplete .buttons .num:active,
+section.calTemplete .buttons .dot:active {
+    background: #5a5858;
+}
+
+section.calTemplete .buttons .delete,
+section.calTemplete .buttons .clear {
+    background: #fa413a;
+}
+
+section.calTemplete .buttons .clear:hover,
+section.calTemplete .buttons .delete:hover {
+    background: #f82f28;;
+}
+
+section.calTemplete .buttons .clear:active,
+section.calTemplete .buttons .delete:active {
+    background: #f81811;
 }
