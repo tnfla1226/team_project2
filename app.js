@@ -1,4 +1,5 @@
 //변수 선언
+
 // 숫자 저장 배열
 let numArray = [];
 // C버튼 클릭 카운트
@@ -6,31 +7,36 @@ let count = 0;
 
 const $resultDiv = document.querySelector('#result');
 
-// input 창
+// input 노드
 let $show = document.getElementById('show');
 
 
-
 //함수 정의
-// 숫자 함수
+// 숫자버튼 클릭 함수
 function addNum(num) {
   $show.value += num;
   $show.setAttribute('value', $show.value);
-  $resultDiv.textContent += num; 
+  $resultDiv.textContent += num;
 }
 
-// 19 글자 초과 제한 함수
+// 19글자 초과 제한 함수
 function over(target) {
   if($show.value.length > 19){
     console.log("19글자 넘음");
-    // alert('19글자를 초과했습니다!');
     target.preventDefault();
 
   }
 }
 
+// =을 눌렀을 때 div값이 input으로 올라가게 하는 함수
+function upResult(up) {
+  $show.value = up;
+  
+}
 
-// 연산 함수
+
+
+// 연산버튼 클릭 함수
 function calculate(sign) {
   let result = '';
   if (sign === '+' && $show.hasAttribute('value')) {
@@ -48,32 +54,23 @@ function calculate(sign) {
   } else if (sign === '=' && $show.hasAttribute('value')) {
     
     // answer = (new Function ('return '+$show.value))(); 
+    
     result = eval($show.value); // : 수정코드
-
     $resultDiv.textContent = result;
     console.log($resultDiv);
 
     $show.value += ' =';
-
-    // const $resultDiv = document.createElement('div');
-    // $resultDiv.setAttribute('id', 'result');
-    // const $calTemplete = document.querySelector('.calTemplete');
-    // $calTemplete.insertBefore($resultDiv, $show);
-
-    // $show.value = result;
-    // $show.setAttribute('value', result);
-
-
+    upResult(result);
 
   }
 
   // 배열에 값 저장
   numArray.push($show.value);
-  console.log(numArray);
+  // console.log(numArray);
 
 }
 
-// .(점) 함수
+// .(점)버튼 클릭 함수
 function dot(point) {
   if ($show.hasAttribute('value')) {
 
@@ -88,9 +85,7 @@ function dot(point) {
 }
 
 
-
-
-// AC 함수
+// AC버튼 클릭 함수
 function allClear() {
   $show.value = '';
   numArray.splice(0, numArray.length);
@@ -99,11 +94,12 @@ function allClear() {
   $resultDiv.textContent = '';
 }
 
-/// C 함수
+// C 함수
 function clear() {
   $show.value = numArray[numArray.length - 1];
   numArray.pop();
   console.log(numArray);
+  $resultDiv.textContent = '';
 
 }
 
@@ -124,9 +120,9 @@ function plusMinus() {
 
 
 
-
 //실행부 
 (function () {
+  // 사용할 노드
   const $buttons = document.querySelector('.buttons');
   const $show = document.getElementById('show');
   const $dot = document.querySelector('.dot');
@@ -136,16 +132,18 @@ function plusMinus() {
   // 숫자 버튼 클릭 이벤트 
   $buttons.addEventListener('click', e => {
     over(e.target);
-
     if (e.target.matches('.num')) {
       console.log('숫자버튼 클릭!');
       addNum(e.target.textContent);
     }
+
+
   });
 
   // 연산 버튼 클릭 이벤트
   $buttons.addEventListener('click', e => {
     if (e.target.matches('.plus') || e.target.matches('.minus') || e.target.matches('.divisor') || e.target.matches('.mul') || e.target.matches('.answer')) {
+      console.log('연산버튼 클릭!');
       calculate(e.target.textContent);
 
 
@@ -158,7 +156,7 @@ function plusMinus() {
   //  .(점)버튼 클릭 이벤트
   $buttons.addEventListener('click', e => {
     if (e.target.matches('.dot')) {
-      console.log('점 클릭!');
+      console.log('점버튼 클릭!');
       dot(e.target.textContent);
 
 
@@ -169,7 +167,7 @@ function plusMinus() {
   // AC버튼 클릭 이벤트
   $buttons.addEventListener('click', e => {
     if (e.target.matches('.clear')) {
-      console.log('올클리어 클릭!');
+      console.log('올클리어버튼 클릭!');
       allClear();
 
     }
@@ -179,10 +177,11 @@ function plusMinus() {
   // C버튼 클릭 이벤트
   $buttons.addEventListener('click', e => {
     if (e.target.matches('.delete')) {
-      console.log('삭제 클릭!');
-      count = numArray.length + 1;
+      console.log('삭제버튼 클릭!');
+      console.log(numArray.length);
+      count = numArray.length +1;  //연산자버튼을 누르기 전엔 배열에 값이 안들어가기 때문에 가장 마지막에 입력한 값(배열에 안들어간)까지 세기 위해서 +1을 함
       count--;
-      console.log(count);
+      
       clear();
 
       if (count === 0) {
@@ -196,26 +195,16 @@ function plusMinus() {
   // +/-버튼 클릭 이벤트
   $buttons.addEventListener('click', e => {
     if (e.target.matches('.plusMinus')) {
-      console.log('쁠마 클릭!');
+      console.log('+/-버튼 클릭!');
       plusMinus();
-
-
     }
   })
 
 
-
+  
 })();
 
-// 고쳐야 할 오류
-//  계산 하고 숫자 입력시 div값이 input으로 올라가고 input 초기화
-//  input창이랑 div창 입력 제한 19자리
-//  +/- 수정
 
 
 
-
-
-// 할 것
-
-// ppt
+// 
